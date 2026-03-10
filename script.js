@@ -1,27 +1,46 @@
-const cursor = document.querySelector(".cursor")
+// PARTICLE BACKGROUND
 
-document.addEventListener("mousemove",(e)=>{
+tsParticles.load("particles",{
 
-cursor.style.left = e.clientX + "px"
-cursor.style.top = e.clientY + "px"
-
-})
-
-const cards = document.querySelectorAll(".card")
-
-window.addEventListener("scroll",()=>{
-
-cards.forEach(card=>{
-
-let top = card.getBoundingClientRect().top
-
-if(top < window.innerHeight - 100){
-
-card.style.opacity="1"
-card.style.transform="translateY(0)"
-
+particles:{
+number:{value:80},
+size:{value:3},
+move:{speed:1},
+links:{enable:true}
 }
 
 })
+
+
+// GSAP SCROLL
+
+gsap.registerPlugin(ScrollTrigger)
+
+gsap.utils.toArray(".reveal").forEach(section=>{
+
+gsap.to(section,{
+
+opacity:1,
+y:0,
+duration:1.2,
+
+scrollTrigger:{
+trigger:section,
+start:"top 80%"
+}
+
+})
+
+})
+
+
+// CONTACT FORM
+
+document.getElementById("contactForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault()
+
+alert("Message sent! I will contact you soon.")
 
 })
