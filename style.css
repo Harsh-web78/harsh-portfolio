@@ -3,128 +3,390 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Poppins;
+scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(120deg,#020617,#0f172a,#020617);
+background:#020617;
 color:white;
 overflow-x:hidden;
 }
 
-/* glowing cursor */
+/* particle background */
 
-.cursor{
-width:20px;
-height:20px;
-border-radius:50%;
-background:#6366f1;
+#particles{
 position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-box-shadow:0 0 20px #6366f1;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* navbar */
 
 header{
+
+position:fixed;
+top:0;
+width:100%;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:20px 10%;
+
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+
+z-index:1000;
+
 }
 
 .logo{
-font-size:24px;
+font-size:22px;
 font-weight:700;
 color:#6366f1;
 }
 
 nav a{
-margin-left:20px;
-color:white;
+
+margin-left:25px;
 text-decoration:none;
-transition:.3s;
+color:white;
+font-size:15px;
+transition:0.3s;
+
 }
 
 nav a:hover{
-color:#6366f1;
+
+color:#22c55e;
+
 }
 
 /* hero */
 
 .hero{
-height:90vh;
+
+height:100vh;
+
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+
 text-align:center;
+
 padding:20px;
+
 }
 
 .hero h1{
-font-size:50px;
+
+font-size:55px;
+margin-bottom:10px;
+
 }
 
-.hero h2{
-color:#6366f1;
-margin:10px 0;
+.hero p{
+
+opacity:0.8;
+
 }
 
 .btn{
-margin-top:30px;
+
+margin-top:25px;
+
 padding:14px 35px;
+
 background:linear-gradient(45deg,#6366f1,#22c55e);
+
 border-radius:30px;
+
 text-decoration:none;
+
 color:white;
+
+font-weight:500;
+
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+
+/* services */
+
+.services{
+
+padding:100px 10%;
+text-align:center;
+
+}
+
+.service-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:30px;
+
+margin-top:40px;
+
+}
+
+.service-card{
+
+background:rgba(255,255,255,0.05);
+
+padding:30px;
+
+border-radius:15px;
+
+backdrop-filter:blur(10px);
+
+transition:0.4s;
+
+}
+
+.service-card:hover{
+
+transform:translateY(-10px);
+
 }
 
 /* projects */
 
 .projects{
-padding:80px 10%;
+
+padding:100px 10%;
+
 }
 
 .projects h2{
+
 text-align:center;
 margin-bottom:40px;
+
 }
 
 .grid{
+
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
 gap:30px;
+
 }
 
 .card{
+
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:30px;
+
+padding:20px;
+
 border-radius:15px;
-transition:.4s;
-border:1px solid rgba(255,255,255,0.1);
+
+transition:0.4s;
+
+}
+
+.card img{
+
+width:100%;
+
+border-radius:10px;
+
+margin-bottom:10px;
+
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.05);
+
+transform:translateY(-10px);
+
 }
 
 .card a{
-display:inline-block;
-margin-top:15px;
+
 color:#22c55e;
+text-decoration:none;
+
+}
+
+/* hire */
+
+.hire{
+
+padding:100px 10%;
+text-align:center;
+
+}
+
+.hire-buttons{
+
+margin-top:30px;
+
+}
+
+.hire-buttons .btn{
+
+margin:10px;
+
 }
 
 /* contact */
 
 .contact{
-padding:80px 10%;
+
+padding:100px 10%;
 text-align:center;
+
 }
 
+form{
+
+display:flex;
+flex-direction:column;
+
+max-width:400px;
+
+margin:auto;
+
+}
+
+input,textarea{
+
+margin:10px 0;
+
+padding:12px;
+
+border:none;
+
+border-radius:8px;
+
+}
+
+button{
+
+padding:12px;
+
+background:#6366f1;
+
+border:none;
+
+border-radius:20px;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+/* social */
+
+.social{
+
+margin-top:20px;
+
+}
+
+.social a{
+
+margin:10px;
+
+color:#22c55e;
+
+text-decoration:none;
+
+}
+
+/* footer */
+
 footer{
+
 text-align:center;
+
 padding:20px;
-opacity:.6;
+
+opacity:0.7;
+
+}
+
+/* reveal animation */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(100px);
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+padding:15px;
+
+}
+
+nav{
+
+margin-top:10px;
+
+}
+
+nav a{
+
+margin:0 10px;
+
+font-size:14px;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+.hero p{
+
+font-size:14px;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.service-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.btn{
+
+padding:10px 25px;
+
+font-size:14px;
+
+}
+
 }
